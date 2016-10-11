@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title> The ColorGuess Game </title>
+	</head>
+
+	<body onload="do_game()">
+
+
+		<script>
+		
+			var colors = ['red', 'orange', 'yellow', 'cyan', 'blue', 'green', 'purple'];
+			var targetColor = '';
+			var attemps = 0;
+			var game_over = false;
+			
+				
+					
+			function check_guess(playerChoice){
+				if(colors.indexOf(playerChoice) < 0 ){
+					alert('You must chose a color from these: '+ colors.join(' , '));
+					return false;
+				}
+				
+				if(playerChoice < targetColor){
+					alert('My color is alphabetically HIGHER than yours. Try again.');
+					return false;
+				}
+				
+				if(playerChoice > targetColor){
+					alert('My color is alphabetically LOWER than yours. Try again.');
+					return false;
+				}
+				
+				myBody=document.getElementsByTagName("body")[0];
+				myBody.style.background=targetColor;
+				return true;
+				
+			}	
+				
+			function do_game(){
+			
+				colors = colors.sort();
+				chosenColorIndex = Math.floor(Math.random() * colors.length);
+				targetColor = colors[chosenColorIndex];
+				
+				alert(targetColor);
+				
+				playerChoice = '';
+				
+				while(!game_over){
+					attemps++;
+					playerChoice = prompt("Guess my color");	
+					
+					if(check_guess(playerChoice)){
+						game_over = true;
+					}
+					
+				}
+				
+				alert('Congratulations, my color is ' + targetColor + '! \nYou took '+attemps+ ' attemps to finish.');
+				
+			
+			}
+			
+			
+		</script>
+
+	</body>
+
+</html>
