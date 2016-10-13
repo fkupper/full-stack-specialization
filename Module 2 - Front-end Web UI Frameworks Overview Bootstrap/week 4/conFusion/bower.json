@@ -1,0 +1,26 @@
+{
+  "name": "conFusion",
+  "homepage": "https://github.com/fkupper/full-stack-specialization",
+  "authors": [
+    "Fernando Küpper <fernando@kupper.com.br>"
+  ],
+  "description": "My awesome project forcoursera fullstack specialization",
+  "main": "index.html",
+  "keywords": [
+    "restaurant"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "angular": "^1.5.8"
+  }
+}
