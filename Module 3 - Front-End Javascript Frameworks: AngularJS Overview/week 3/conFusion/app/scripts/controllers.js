@@ -1,6 +1,6 @@
 /* global angular */
 angular.module('confusionApp')
-    .controller('MenuController', ['$scope','menuFactory', function ($scope, menuFactory) {
+    .controller('MenuController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
         'use strict';
         $scope.tab = 1;
         $scope.filtText = '';
@@ -89,16 +89,16 @@ angular.module('confusionApp')
     };
 }])
 
-.controller('DishDetailController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
+.controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function ($scope, $routeParams, menuFactory) {
     'use strict';
 
-    $scope.dish= menuFactory.getDish(3);
-
+    var dish = menuFactory.getDish(parseInt($routeParams.id, 10));
+    $scope.dish = dish;
     //Step 1: Create a JavaScript object to hold the comment from the form
     $scope.newComment = {
         rating: 5,
         comment: '',
-        author:'',
+        author: '',
         date: new Date().toISOString()
 
     };
@@ -126,7 +126,7 @@ angular.module('confusionApp')
         $scope.newComment = {
             rating: 5,
             comment: '',
-            author:'',
+            author: '',
             date: new Date().toISOString()
 
         };
